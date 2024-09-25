@@ -1,19 +1,37 @@
 import { Link } from 'react-router-dom';
-import LogoS from '../../assets/images/3d-a-letter-design-vector-33122342.png' 
 import './index.scss';
+import AnimatedLetters from '../AnimatedLetters'
+import { useEffect, useState } from 'react';
 
 const Home = () => {
+    const [letterClass, setLetterClass] = useState('text-animate')
 
+    const nameArray = [' ', 'A', 'r', 'n', 'e',]
+    const jobArray = ['M', 'e', 'e', 'v', 'i', 's', ]
+
+    // useEffect(() => {
+    //     return setTimeout(() => {
+    //       setLetterClass('text-animate-hover')       Work in progres
+    //     }, 4000)
+    //   }, [])
 
     return (
         <div className="container home-page">
             <div className="text-zone">
-                <h1>Hi I'm
-                {/* <img src={LogoS} alt="developer" /> */}
+                <h1>
+                    <span className={letterClass}>H</span>
+                    <span className={`${letterClass} _12`}>i,</span>
+                <br /> 
+                <span className={`${letterClass} _13`}>I</span>
+                <span className={`${letterClass} _14`}>'m  </span>
+                <AnimatedLetters letterClass={letterClass}
+                strArray={nameArray}
+                idx={12} />
                 <br />
-                Arne
-                <br />
-                Meevis
+                <AnimatedLetters letterClass={letterClass}
+                strArray={jobArray}
+                idx={22}   />
+                
                 </h1>
                 <h2>Student ROC Midden Nederland / Lerning React / Gamer</h2>
                 <Link to="/contact" className='flat-button'>CONTACT ME</Link>
